@@ -23,6 +23,7 @@ const BaseForm = props => {
 };
 
 const Liform = props => {
+  console.log('rendering...');
   props.schema.showLabel = false;
   const schema = compileSchema(props.schema);
   const formName = props.formKey || props.schema.title || "form";
