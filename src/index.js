@@ -55,7 +55,7 @@ class Liform extends Component {
 
   render() {
     var FinalForm = this.FinalForm;
-    const schema = compileSchema(props.schema);
+    const schema = compileSchema(this.props.schema);
     return (
       <FinalForm
         renderFields={renderField.bind(this)}
