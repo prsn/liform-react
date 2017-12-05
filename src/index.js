@@ -51,16 +51,16 @@ class Liform extends Component {
     })(props.baseForm || BaseForm);
 
     this.FinalForm = FinalForm;
-    this.schema = schema;
   }
 
   render() {
     var FinalForm = this.FinalForm;
+    const schema = compileSchema(props.schema);
     return (
       <FinalForm
         renderFields={renderField.bind(this)}
         {...this.props}
-        schema={this.schema}
+        schema={schema}
       />
     );
   }
