@@ -47,7 +47,8 @@ class Liform extends Component {
       form: props.formKey || props.schema.title || "form",
       validate: props.syncValidation || buildSyncValidation(schema, props.ajv),
       initialValues: props.initialValues,
-      context: { ...props.context, formName }
+      context: { ...props.context, formName },
+      destroyOnUnmount: false
     })(props.baseForm || BaseForm);
 
     this.FinalForm = FinalForm;
