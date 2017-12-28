@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Field } from "redux-form";
@@ -31,7 +31,7 @@ const renderInput = field => {
   );
 };
 
-class BaseInputWidget extends React.Document {
+class BaseInputWidget extends Component {
   constructor(props) {
     super(props);
     this.state = {
