@@ -53,9 +53,14 @@ class BaseInputWidget extends Component {
     
     return (
       <div onMouseEnter={this.toggleHovering} onMouseLeave={this.toggleHovering}>
-        {
-          isEditMode && isHovering && <div>Edit Icons...</div>
-        }
+        <div style={{height: 20}}>
+          {
+            isEditMode && isHovering && <div>
+                <a href="#" onClick={() => console.log('Edit clicked')}><span className='glyphicon glyphicon-edit'/></a>
+                <a href="#" onClick={() => console.log('Remove clicked')}><span className='glyphicon glyphicon-remove-circle'/></a>
+              </div>
+          }
+        </div>
         <Field
           component={renderInput}
           label={props.label}
