@@ -10,7 +10,8 @@ const Widget = props => {
         props.schema,
         props.theme,
         props.fieldName && props.fieldName + ".",
-        props.context
+        props.context,
+        props.isEditMode
       )}
     </div>
   );
