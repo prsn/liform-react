@@ -20,6 +20,7 @@ const renderField = (
   theme,
   prefix = "",
   context = {},
+  isEditMode = false,
   required = false
 ) => {
   if (fieldSchema.hasOwnProperty("allOf")) {
@@ -44,7 +45,8 @@ const renderField = (
     schema: fieldSchema,
     theme,
     context,
-    prefix
+    prefix,
+    isEditMode
   });
 };
 

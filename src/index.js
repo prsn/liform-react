@@ -16,10 +16,10 @@ class BaseForm extends Component {
   }
 
   render() {
-    const { schema, handleSubmit, theme, error, submitting, context } = this.props;
+    const { schema, handleSubmit, theme, error, submitting, context, isEditMode } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        {renderField(schema, null, theme || DefaultTheme, "", context)}
+        {renderField(schema, null, theme || DefaultTheme, "", context, isEditMode)}
         <div>{error && <strong>{error}</strong>}</div>
         <button className="btn btn-primary" type="submit" disabled={submitting}>
           Submit

@@ -49,12 +49,12 @@ class BaseInputWidget extends Component {
   render() {
     var isHovering = ((this.state && this.state.hover) || false),
         props = this.props,
-        editMode = props.editMode || false;
+        isEditMode = props.isEditMode || false;
     
     return (
       <div onMouseEnter={this.toggleHovering} onMouseLeave={this.toggleHovering}>
         {
-          editMode && isHovering && <div>Edit Icons...</div>
+          isEditMode && isHovering && <div>Edit Icons...</div>
         }
         <Field
           component={renderInput}
