@@ -11,7 +11,9 @@ const Widget = props => {
         props.theme,
         props.fieldName && props.fieldName + ".",
         props.context,
-        props.isEditMode
+        props.isEditMode,
+        props.onEdit,
+        props.onDelete
       )}
     </div>
   );

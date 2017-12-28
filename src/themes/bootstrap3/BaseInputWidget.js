@@ -48,6 +48,8 @@ class BaseInputWidget extends Component {
   render() {
     var isHovering = ((this.state && this.state.hover) || false),
         props = this.props,
+        onEdit = props.onEdit,
+        onDelete = props.onDelete,
         isEditMode = props.isEditMode || false;
     
     return (
@@ -55,8 +57,8 @@ class BaseInputWidget extends Component {
         {isEditMode && <div style={{height: 20}}>
           {
             isHovering && <div>
-                <a href="#" onClick={() => console.log('Edit clicked')} style={{marginRight: 7}}><span className='glyphicon glyphicon-edit m2 p2'/></a>
-                <a href="#" onClick={() => console.log('Remove clicked')} style={{marginRight: 7}}><span className='glyphicon glyphicon-trash m2 p2'/></a>
+                <a href="#" onClick={() => {onEdit(props.schema)}} style={{marginRight: 7}}><span className='glyphicon glyphicon-edit'/></a>
+                <a href="#" onClick={() => {onDelete(props.schema)}} style={{marginRight: 7}}><span className='glyphicon glyphicon-trash'/></a>
               </div>
           }
         </div>}

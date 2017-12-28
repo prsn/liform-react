@@ -21,6 +21,8 @@ const renderField = (
   prefix = "",
   context = {},
   isEditMode = false,
+  onEdit = () => {},
+  onDelete = () => {},
   required = false
 ) => {
   if (fieldSchema.hasOwnProperty("allOf")) {
@@ -46,7 +48,9 @@ const renderField = (
     theme,
     context,
     prefix,
-    isEditMode
+    isEditMode,
+    onEdit,
+    onDelete
   });
 };
 

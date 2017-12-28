@@ -8,7 +8,7 @@ export const isRequired = (schema, fieldName) => {
   return schema.required.indexOf(fieldName) !== -1;
 };
 
-const renderFields = (schema, theme, prefix = null, context = {}, isEditMode) => {
+const renderFields = (schema, theme, prefix = null, context = {}, isEditMode, onEdit = ()=>{}, onDelete = ()=> {}) => {
   let props = [];
   for (let i in schema.properties) {
     props.push({ prop: i, propertyOrder: schema.properties[i].propertyOrder });
@@ -32,6 +32,8 @@ const renderFields = (schema, theme, prefix = null, context = {}, isEditMode) =>
       prefix,
       context,
       isEditMode,
+      onEdit,
+      onDelete,
       isRequired(schema, name)
     );
   });
