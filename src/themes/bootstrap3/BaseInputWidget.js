@@ -31,21 +31,46 @@ const renderInput = field => {
   );
 };
 
-const BaseInputWidget = props => {
-  return (
-    <Field
-      component={renderInput}
-      label={props.label}
-      name={props.fieldName}
-      required={props.required}
-      id={"field-" + props.fieldName}
-      placeholder={props.schema.default}
-      description={props.schema.description}
-      type={props.type}
-      normalize={props.normalizer}
-    />
-  );
-};
+class BaseInputWidget extends React.Document {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hover: false
+    }
+  }
+
+  toggleHovering = () => {
+    var hover = this.state.hover;
+    this.setState({
+      hover: !hover
+    });
+  }
+
+  render() {
+    var isHovering = ((this.state && this.state.hover) || false),
+        props = this.props,
+        editMode = props.editMode || false;
+    
+    return (
+      <div onMouseEnter={this.toggleHovering} onMouseLeave={this.toggleHovering}>
+        {
+          editMode && isHovering && <div>Edit Icons...</div>
+        }
+        <Field
+          component={renderInput}
+          label={props.label}
+          name={props.fieldName}
+          required={props.required}
+          id={"field-" + props.fieldName}
+          placeholder={props.schema.default}
+          description={props.schema.description}
+          type={props.type}
+          normalize={props.normalizer}
+        />
+      </div>
+    )
+  }
+}
 
 BaseInputWidget.propTypes = {
   schema: PropTypes.object.isRequired,
