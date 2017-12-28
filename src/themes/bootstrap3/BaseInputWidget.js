@@ -39,10 +39,9 @@ class BaseInputWidget extends Component {
     }
   }
 
-  toggleHovering = () => {
-    var hover = this.state.hover;
+  toggleHovering = (isHovering) => {
     this.setState({
-      hover: !hover
+      hover: isHovering
     });
   }
 
@@ -52,12 +51,13 @@ class BaseInputWidget extends Component {
         isEditMode = props.isEditMode || false;
     
     return (
-      <div onMouseEnter={this.toggleHovering} onMouseLeave={this.toggleHovering}>
-        <div style={{height: 20}}>
+      <div onMouseEnter={() => {this.toggleHovering(true)}} onMouseLeave={() => {this.toggleHovering(false)}}>
+        <div style={{height: 20, right: 20}}>
           {
             isEditMode && isHovering && <div>
-                <a href="#" onClick={() => console.log('Edit clicked')}><span className='glyphicon glyphicon-edit'/></a>
-                <a href="#" onClick={() => console.log('Remove clicked')}><span className='glyphicon glyphicon-remove-circle'/></a>
+                <a href="#" onClick={() => console.log('Edit clicked')}><span className='glyphicon glyphicon-edit m2 p2'/></a>
+                <span className=''/>
+                <a href="#" onClick={() => console.log('Remove clicked')}><span className='glyphicon glyphicon-trash m2 p2'/></a>
               </div>
           }
         </div>
